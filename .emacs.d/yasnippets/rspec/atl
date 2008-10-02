@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : at_least
+# --
+at_least(${1:n}).times

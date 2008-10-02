@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : loop { .. }
+# --
+loop { $0 }

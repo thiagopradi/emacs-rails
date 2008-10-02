@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : assert_nothing_thrown { .. }
+# --
+assert_nothing_thrown { $0 }

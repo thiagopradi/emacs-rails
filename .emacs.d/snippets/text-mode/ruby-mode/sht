@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : should throw
+# --
+lambda { $1 }.should throw_symbol(:${2:symbol})
+$0

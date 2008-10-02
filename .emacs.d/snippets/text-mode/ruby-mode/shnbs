@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : should_not be_success
+# --
+response.should_not be_success
+$0

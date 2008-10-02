@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : validates_associated
+# --
+validates_associated :${1:attribute}${2:, :on => :${3:create}}

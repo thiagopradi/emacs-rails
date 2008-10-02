@@ -1,0 +1,9 @@
+# -*- mode: yasnippet -*-
+#name : Story
+# --
+Story "${1:title}", %{
+  As a${2:role}
+  I want ${3:feature}
+  So that ${4:value}  
+} do
+end

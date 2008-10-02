@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : t.time (tcti)
+# --
+t.time :${1:title}
+t.$0

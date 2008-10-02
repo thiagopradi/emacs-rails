@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : randomize()
+# --
+sort_by { rand }

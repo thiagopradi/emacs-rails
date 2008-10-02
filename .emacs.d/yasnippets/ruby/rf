@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : render (file)
+# --
+render :file => "${1:filepath}"

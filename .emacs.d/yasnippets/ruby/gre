@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : grep(/pattern/) { |match| .. }
+# --
+grep(${1:/${2:pattern}/}) { |${3:match}| $0 }

@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : logger.debug
+# --
+logger.debug { "${1:message}" }$0

@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : Table column(s) references
+# --
+t.references :${1:taggable}${2:, :polymorphic => ${3:{ :default => '${4:Photo}' \}}}
+$0

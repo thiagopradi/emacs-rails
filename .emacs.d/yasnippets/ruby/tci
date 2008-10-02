@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : Table column integer
+# --
+t.integer :${1:title}
+$0

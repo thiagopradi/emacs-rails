@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : transaction( .. ) { .. }
+# --
+transaction${1/(^.*?\S.*)|.*/(?1:\()/}${1:true}${1/(^.*?\S.*)|.*/(?1:\))/} { $0 }

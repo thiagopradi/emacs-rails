@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : singleton_class()
+# --
+class << self; self end

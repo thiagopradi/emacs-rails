@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : with args
+# --
+with(${1:args})

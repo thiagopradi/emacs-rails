@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : def_delegator ..
+# --
+def_delegator :${1:@del_obj}, :${2:del_meth}, :${3:new_name}

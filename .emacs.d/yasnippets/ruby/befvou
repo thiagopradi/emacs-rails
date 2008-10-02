@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : before_validation_on_update
+# --
+before_validation_on_update

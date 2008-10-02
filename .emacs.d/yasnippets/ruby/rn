@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : render (nothing)
+# --
+render :nothing => ${1:true}

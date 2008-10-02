@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : select { |e| .. }
+# --
+select { |${1:e}| $0 }

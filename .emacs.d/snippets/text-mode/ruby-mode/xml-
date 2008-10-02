@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : xmlread(..)
+# --
+REXML::Document.new(File.read(${1:"${2:path/to/file}"}))

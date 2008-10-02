@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : Table column lock_version
+# --
+t.integer :lock_version, :null => false, :default => 0
+$0

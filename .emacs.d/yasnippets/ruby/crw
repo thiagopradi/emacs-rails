@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : cattr_accessor
+# --
+cattr_accessor :${0:attr_names}

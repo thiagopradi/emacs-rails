@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : assert_redirected_to
+# --
+assert_redirected_to ${2::action => "${1:index}"}

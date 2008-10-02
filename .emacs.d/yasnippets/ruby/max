@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : max { |a, b| .. }
+# --
+max { |a, b| $0 }

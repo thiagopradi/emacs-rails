@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : t.timestamp (tcts)
+# --
+t.timestamp :${1:title}
+t.$0

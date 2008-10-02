@@ -1,0 +1,8 @@
+# -*- mode: yasnippet -*-
+#name : describe (String)
+# --
+describe "${1:description}" do
+  it "should ${2:description}" do
+    $0
+  end
+end

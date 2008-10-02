@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : assert_no_match(..)
+# --
+assert_no_match`snippet_paren.rb`/${1:unexpected_pattern}/, ${0:actual_string}`snippet_paren.rb end`

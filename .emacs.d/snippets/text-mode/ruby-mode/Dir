@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : Dir.glob("..") { |file| .. }
+# --
+Dir.glob(${1:"${2:dir/glob/*}"}) { |${3:file}| $0 }

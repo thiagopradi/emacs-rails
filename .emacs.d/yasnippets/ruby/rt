@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : render (text)
+# --
+render :text => "${1:text to render...}"

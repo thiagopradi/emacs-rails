@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : classify { |e| .. }
+# --
+classify { |${1:e}| $0 }

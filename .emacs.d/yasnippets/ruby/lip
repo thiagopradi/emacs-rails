@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : link_to (path)
+# --
+${TM_RAILS_TEMPLATE_START_RUBY_EXPR}link_to ${1:"${2:link text...}"}, ${3:${12:model}_path(${13:@}${14:${12}})}${TM_RAILS_TEMPLATE_END_RUBY_EXPR}

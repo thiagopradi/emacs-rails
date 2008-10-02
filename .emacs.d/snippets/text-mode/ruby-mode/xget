@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : xhr get
+# --
+xhr :get, :${1:show}${2:, :id => ${3:1}}$0

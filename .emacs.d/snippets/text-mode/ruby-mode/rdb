@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : RAILS_DEFAULT_LOGGER.debug
+# --
+RAILS_DEFAULT_LOGGER.debug "${1:message}"$0

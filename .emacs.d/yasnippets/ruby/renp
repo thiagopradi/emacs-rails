@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : redirect_to (nested path)
+# --
+redirect_to(${2:${12:parent}_${13:child}_path(${14:@}${15:${12}}, ${16:@}${17:${13}})})

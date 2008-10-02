@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : render (partial)
+# --
+render :partial => "${1:item}"

@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : when …
+# --
+when ${1:condition}
+	$0

@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : and_raise
+# --
+and_raise(${1:exception})

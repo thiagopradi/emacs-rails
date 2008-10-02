@@ -1,0 +1,8 @@
+# -*- mode: yasnippet -*-
+#name : include Comparable ..
+# --
+include Comparable
+
+def <=>(other)
+	$0
+end

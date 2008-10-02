@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : path_from_here( .. )
+# --
+File.join(File.dirname(__FILE__), *%w[${1:rel path here}])

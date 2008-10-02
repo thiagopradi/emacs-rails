@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : detect { |e| .. }
+# --
+detect { |${1:e}| $0 }

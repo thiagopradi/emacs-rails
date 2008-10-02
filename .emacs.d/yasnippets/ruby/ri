@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : render (inline)
+# --
+render :inline => "${1:<%= 'hello' %>}"

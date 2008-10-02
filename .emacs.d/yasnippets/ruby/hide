@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : page.hide (*ids)
+# --
+page.hide ${1:"${2:id(s)}"}

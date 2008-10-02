@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : attr_writer ..
+# --
+attr_writer :${0:attr_names}

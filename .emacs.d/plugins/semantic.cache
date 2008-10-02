@@ -1,0 +1,199 @@
+;; Object semantic.cache
+;; SEMANTICDB Tags save file
+(semanticdb-project-database "semantic.cache"
+  :file "semantic.cache"
+  :tables (list 
+   (semanticdb-table "yasnippet.el"
+    :file "yasnippet.el"
+    :pointmax 74259
+    :major-mode 'emacs-lisp-mode
+    :tokens '(("eval-when-compile" code nil [1365 1398]) ("yas/dont-activate" variable nil nil nil "If set to t, don't activate yas/minor-mode automatically." nil [1553 1645]) ("make-variable-buffer-local" code nil [1646 1693]) ("yas/key-syntaxes" variable nil (list "w" "w_" "w_." "^ ") nil "A list of syntax of a key. This list is tried in the order
+to try to find a key. For example, if the list is '(\"w\" \"w_\").
+And in emacs-lisp-mode, where \"-\" has the syntax of \"_\":
+
+foo-bar
+
+will first try \"bar\", if not found, then \"foo-bar\" is tried." nil [1695 2013]) ("yas/root-directory" variable nil nil nil "The (list of) root directory that stores the snippets for each
+major modes." nil [2015 2126]) ("yas/indent-line" variable nil t nil "Each (except the 1st) line of the snippet template is indented to
+current column if this variable is non-`nil'." nil [2128 2270]) ("make-variable-buffer-local" code nil [2271 2316]) ("yas/trigger-key" variable nil (kbd "SPC") nil "The key to bind as a trigger of snippet." nil [2318 2399]) ("yas/next-field-key" variable nil (kbd "TAB'") nil "The key to navigate to next field." nil [2400 2479]) ("yas/keymap" variable nil (make-sparse-keymap) nil "The keymap of snippet." nil [2481 2548]) ("define-key" code nil [2549 2613]) ("define-key" code nil [2614 2673]) ("define-key" code nil [2674 2743]) ("define-key" code nil [2744 2805]) ("define-key" code nil [2806 2869]) ("yas/show-all-modes-in-menu" variable nil nil nil "Currently yasnippet only all \"real modes\" to menubar. For
+example, you define snippets for \"cc-mode\" and make it the
+parent of `c-mode', `c++-mode' and `java-mode'. There's really
+no such mode like \"cc-mode\". So we don't show it in the yasnippet
+menu to avoid the menu becoming too big with strange modes. The
+snippets defined for \"cc-mode\" can still be accessed from
+menu-bar->c-mode->parent (or c++-mode, java-mode, all are ok).
+However, if you really like to show all modes in the menu, set
+this variable to t." nil [2871 3436]) ("yas/use-menu" variable nil t nil "If this is set to `t', all snippet template of the current
+mode will be listed under the menu \"yasnippet\"." nil [3437 3573]) ("yas/trigger-symbol" variable nil " =>" nil "The text that will be used in menu to represent the trigger." nil [3574 3672]) ("yas/field-highlight-face" variable nil (quote ((((class color) (background light)) (:background "DarkSeaGreen2")) (t (:background "DimGrey")))) nil "The face used to highlight a field of snippet." nil [3674 3863]) ("yas/mirror-highlight-face" variable nil (quote ((((class color) (background light)) (:background "LightYellow2")) (t (:background "gray22")))) nil "The face used to highlight mirror fields of a snippet." nil [3864 4060]) ("yas/window-system-popup-function" variable nil (function yas/dropdown-list-popup-for-template) nil "When there's multiple candidate for a snippet key. This function
+is called to let user select one of them. `yas/text-popup-function'
+is used instead when not in a window system." nil [4062 4324]) ("yas/text-popup-function" variable nil (function yas/dropdown-list-popup-for-template) nil "When there's multiple candidate for a snippet key. If not in a
+window system, this function is called to let user select one of
+them. `yas/window-system-popup-function' is used instead when in
+a window system." nil [4325 4610]) ("yas/extra-mode-hooks" variable nil (quote nil) nil "A list of mode-hook that should be hooked to enable yas/minor-mode.
+Most modes need no special consideration.  Some mode (like `ruby-mode')
+doesn't call `after-change-major-mode-hook' need to be hooked explicitly." nil [4612 4865]) ("mapc" code nil [4866 5032]) ("yas/after-exit-snippet-hook" variable nil (quote nil) nil "Hooks to run after a snippet exited.
+The hooks will be run in an environment where some variables bound to
+proper values:
+ * yas/snippet-beg : The beginning of the region of the snippet.
+ * yas/snippet-end : Similar to beg." nil [5034 5304]) ("yas/before-expand-snippet-hook" variable nil (quote nil) nil "Hooks to run after a before expanding a snippet." nil [5306 5404]) ("yas/buffer-local-condition" variable nil (quote (if (and (not (bobp)) (or (equal "font-lock-comment-face" (get-char-property (1- (point)) (quote face))) (equal "font-lock-string-face" (get-char-property (1- (point)) (quote face))))) (quote (require-snippet-condition . force-in-comment)) t)) nil "Condition to yasnippet local to each buffer.
+
+    * If yas/buffer-local-condition evaluate to nil, snippet
+      won't be expanded.
+
+    * If it evaluate to the a cons cell where the car is the
+      symbol require-snippet-condition and the cdr is a
+      symbol (let's call it requirement):
+       * If the snippet has no condition, then it won't be
+         expanded.
+       * If the snippet has a condition but evaluate to nil or
+         error occured during evaluation, it won't be expanded.
+       * If the snippet has a condition that evaluate to
+         non-nil (let's call it result):
+          * If requirement is t, the snippet is ready to be
+            expanded.
+          * If requirement is eq to result, the snippet is ready
+            to be expanded.
+          * Otherwise the snippet won't be expanded.
+    * If it evaluate to other non-nil value:
+       * If the snippet has no condition, or has a condition that
+         evaluate to non-nil, it is ready to be expanded.
+       * Otherwise, it won't be expanded.
+
+Here's an example:
+
+ (add-hook 'python-mode-hook
+           '(lambda ()
+              (setq yas/buffer-local-condition
+                    '(if (python-in-string/comment)
+                         '(require-snippet-condition . force-in-comment)
+                       t))))" nil [5406 7148]) ("eval-when-compile" code nil [7149 7227]) ("yas/fallback-behavior" variable nil (quote call-other-command) nil "The fall back behavior of YASnippet when it can't find a snippet
+to expand.
+
+ * 'call-other-command means try to temporarily disable
+    YASnippet and call other command bound to `yas/trigger-key'.
+ * 'return-nil means return nil." nil [7229 7514]) ("yas/version" variable nil "0.5.6" nil nil nil [7660 7688]) ("yas/snippet-tables" variable nil (make-hash-table) nil "A hash table of snippet tables corresponding to each major-mode." nil [7690 7804]) ("yas/menu-table" variable nil (make-hash-table) nil "A hash table of menus of corresponding major-mode." nil [7805 7901]) ("yas/menu-keymap" variable nil (make-sparse-keymap "YASnippet") nil nil nil [7902 7959]) ("define-key" code nil [8019 8092]) ("define-key" code nil [8093 8186]) ("define-key" code nil [8187 8279]) ("define-key" code nil [8280 8344]) ("yas/known-modes" variable nil (quote (ruby-mode rst-mode markdown-mode)) nil "A list of mode which is well known but not part of emacs." nil [8346 8470]) ("yas/escape-backslash" variable nil (concat "YASESCAPE" "BACKSLASH" "PROTECTGUARD") ((const . t)) nil nil [8471 8552]) ("yas/escape-dollar" variable nil (concat "YASESCAPE" "DOLLAR" "PROTECTGUARD") ((const . t)) nil nil [8553 8628]) ("yas/escape-backquote" variable nil (concat "YASESCAPE" "BACKQUOTE" "PROTECTGUARD") ((const . t)) nil nil [8629 8710]) ("yas/field-regexp" variable nil (concat "$\\([0-9]+\\)" "\\|" "${\\(?:\\([0-9]+\\):\\)?\\([^}]*\\)}") ((const . t)) nil nil [8712 8821]) ("yas/snippet-id-seed" variable nil 0 nil "Contains the next id for a snippet." nil [8823 8893]) ("yas/snippet-next-id" function nil nil nil (let ((id yas/snippet-id-seed)) (incf yas/snippet-id-seed) id) nil [8894 8997]) ("yas/overlay-modification-hooks" variable nil (list (quote yas/overlay-modification-hook)) nil "The list of hooks to the overlay modification event." nil [8999 9135]) ("yas/overlay-insert-in-front-hooks" variable nil (list (quote yas/overlay-insert-in-front-hook)) nil "The list of hooks of the overlay inserted in front event." nil [9136 9283]) ("yas/keymap-overlay-modification-hooks" variable nil (list (quote yas/overlay-maybe-insert-behind-hook)) nil "The list of hooks of the big keymap overlay modification event." nil [9284 9445]) ("yas/minor-mode-map" variable nil (make-sparse-keymap) nil "The keymap of yas/minor-mode" nil [9593 9674]) ("yas/minor-mode-on-hook" variable nil nil nil "Hook to call when yas/minor-mode is on." nil [9675 9754]) ("yas/minor-mode-off-hook" variable nil nil nil "Hook to call when yas/minor-mode is off." nil [9755 9836]) ("define-minor-mode" code nil [9837 10402]) ("yas/minor-mode-auto-on" function nil nil nil "Turn on YASnippet minor mode unless `yas/dont-activate' is
+set to t." nil [10404 10563]) ("yas/minor-mode-on" function nil nil ((user-visible . t)) "Turn on YASnippet minor mode." nil [10564 10663]) ("yas/minor-mode-off" function nil nil ((user-visible . t)) "Turn off YASnippet minor mode." nil [10664 10766]) ("yas/template" type "struct" ("\"A template for a snippet.\"" "content" "name" "condition") nil nil name nil [10911 11093]) ("yas/snippet" type "struct" ("\"A snippet.
+
+Description of some fields:
+
+`yas/snippet-saved-buffer-undo-list' saves the value of
+`buffer-undo-list' just after the snippet has been expanded. This
+is to be restored when the snippet is cleaned up. Thus the
+snippet expansion can still be undone after
+`yas/cleanup-snippet', even if field-level undo steps were
+recorded.
+
+`yas/snippet-end-marker' saves the actual end position of the
+snippets main overlay, at the time the snippet was cleaned
+up. Thus `yas/undo-expand-snippet' can clean it up properly.
+
+TODO: describe the rest of the fields\"" "groups" "exit-marker" "id" "overlay" "saved-buffer-undo-list" "end-marker") nil nil (exit-marker nil) nil [11094 11858]) ("yas/group" type "struct" ("\"A group contains a list of field with the same number.\"" "primary-field" "fields" "next" "prev" "snippet") nil nil (fields (list primary-field)) nil [11860 12080]) ("yas/field" type "struct" ("\"A field in a snippet.\"" "overlay" "number" "transform" "value") nil nil number nil [12081 12244]) ("yas/snippet-table" type "struct" ("\"A table to store snippets for a perticular mode.\"" "hash" "parent") nil nil (parent nil) nil [12245 12425]) ("yas/snippet-valid\\?" function nil ("snippet") nil "See if snippet is valid (ie. still alive)." nil [12427 12655]) ("yas/snippet-add-field" function nil ("snippet" "field") nil "Add FIELD to SNIPPET." nil [12657 13273]) ("yas/group-value" function nil ("group") nil "Get the default value of the field group." nil [13275 13425]) ("yas/group-number" function nil ("group") nil "Get the number of the field GROUP." nil [13426 13553]) ("yas/group-add-field" function nil ("group" "field") nil "Add a FIELD to the field GROUP. If the value of the primary
+field is nil and that of the field is not nil, the field is set
+as the primary field of the group." nil [13554 13956]) ("yas/snippet-field-compare" function nil ("field1" "field2") nil "Compare two fields. The field with a number is sorted first.
+If they both have a number, compare through the number. If neither
+have, compare through the start point of the overlay." nil [13958 14472]) ("yas/template-condition-predicate" function nil ("condition") nil (condition-case err (save-excursion (save-restriction (save-match-data (eval condition)))) (error (progn (message (format "[yas]error in condition evaluation: %s" (error-message-string err))) nil))) nil [14474 14823]) ("yas/filter-templates-by-condition" function nil ("templates") nil "Filter the templates using the condition. The rules are:
+
+ * If the template has no condition, it is kept.
+ * If the template's condition eval to non-nil, it is kept.
+ * Otherwise (eval error or eval to nil) it is filtered." nil [14825 15817]) ("yas/snippet-table-fetch" function nil ("table" "key") nil "Fetch a snippet binding to KEY from TABLE. If not found,
+fetch from parent if any." nil [15819 16313]) ("yas/snippet-table-store" function nil ("table" "full-key" "key" "template") nil "Store a snippet template in the table." nil [16314 16665]) ("yas/ensure-minor-mode-priority" function nil nil nil "Ensure that the key binding of yas/minor-mode takes priority." nil [16811 17188]) ("yas/real-mode\\?" function nil ("mode") nil "Try to find out if MODE is a real mode. The MODE bound to
+a function (like `c-mode') is considered real mode. Other well
+known mode like `ruby-mode' which is not part of Emacs might
+not bound to a function until it is loaded. So yasnippet keeps
+a list of modes like this to help the judgement." nil [17190 17573]) ("yas/eval-string" function nil ("string") nil "Evaluate STRING and convert the result to string." nil [17575 17930]) ("yas/calculate-field-value" function nil ("field" "value") nil "Calculate the value of the field. If there's a transform
+for this field, apply it. Otherwise, the value is returned
+unmodified." nil [17931 18247]) ("yas/replace-all" function nil ("from" "to") nil "Replace all occurance from FROM to TO." nil [18248 18418]) ("yas/snippet-table" function nil ("mode") nil "Get the snippet table corresponding to MODE." nil [18420 18672]) ("yas/current-snippet-table" function nil nil nil "Get the snippet table for current major-mode." nil [18673 18795]) ("yas/menu-keymap-for-mode" function nil ("mode") nil "Get the menu keymap correspondong to MODE." nil [18797 19047]) ("yas/current-key" function nil nil nil "Get the key under current position. A key is used to find
+the template of a snippet in the current snippet-table." nil [19049 19786]) ("yas/synchronize-fields" function nil ("field-group") nil "Update all fields' text according to the primary field." nil [19788 20472]) ("yas/current-field-text" function nil ("field") nil (let ((primary-overlay (yas/field-overlay field))) (when primary-overlay (buffer-substring-no-properties (overlay-start primary-overlay) (overlay-end primary-overlay)))) nil [20473 20731]) ("yas/overlay-modification-hook" function nil ("overlay" "after?" "beg" "end" "&optional" "length") nil "Modification hook for snippet field overlay." nil [20734 20969]) ("yas/overlay-insert-in-front-hook" function nil ("overlay" "after?" "beg" "end" "&optional" "length") nil "Hook for snippet overlay when text is inserted in front of a snippet field." nil [20971 21551]) ("yas/overlay-maybe-insert-behind-hook" function nil ("overlay" "after?" "beg" "end" "&optional" "length") nil "Insert behind hook sometimes doesn't get called. I don't know why.
+So I add modification hook in the big overlay and try to detect `insert-behind'
+event manually." nil [21553 23474]) ("yas/remove-recent-undo-from-history" function nil nil nil (let ((undo (car buffer-undo-list))) (while (null undo) (setq buffer-undo-list (cdr buffer-undo-list)) (setq undo (car buffer-undo-list))) (setq buffer-undo-list (cdr buffer-undo-list))) nil [23476 23772]) ("yas/undo-expand-snippet" function nil ("start" "key" "snippet") nil "Undo a snippet expansion. Delete the overlays. This undo can't be
+redo-ed." nil [23774 24165]) ("yas/replace-fields-with-value" function nil ("fields" "text") nil "In all of the fields of the snippet group GROUP fields, delete
+whatever value (string) existed and insert TEXT instead.
+
+The string to insert is calculated according to
+`yas/calculate-field-value', which might insert different text
+for each field." nil [24167 24766]) ("yas/expand-snippet" function nil ("start" "end" "template") nil "Expand snippet at current point. Text between START and END
+will be deleted before inserting template." nil [24768 32046]) ("yas/current-snippet-overlay" function nil ("&optional" "point") nil "Get the most proper overlay which is belongs to a snippet." nil [32048 32748]) ("yas/snippet-of-current-keymap" function nil ("&optional" "point") nil "Get the snippet holding the snippet keymap under POINT." nil [32750 33318]) ("yas/current-overlay-for-navigation" function nil nil nil "Get current overlay for navigation. Might be overlay at current or previous point." nil [33320 34004]) ("yas/navigate-group" function nil ("group" "next?") nil "Go to next of previous field group. Exit snippet if none." nil [34006 34419]) ("yas/parse-template" function nil ("&optional" "file-name") nil "Parse the template in the current buffer.
+If the buffer contains a line of \"# --\" then the contents
+above this line are ignored. Variables can be set above this
+line through the syntax:
+
+#name : value
+
+Here's a list of currently recognized variables:
+
+ * name
+ * contributor
+ * condition
+
+#name: #include \"...\"
+# --
+#include \"$1\"" nil [34421 35658]) ("yas/directory-files" function nil ("directory" "file?") nil "Return directory files or subdirectories in full path." nil [35660 36070]) ("yas/make-menu-binding" function nil ("template") nil (lexical-let ((template template)) (lambda nil (interactive) (yas/expand-snippet (point) (point) template))) nil [36072 36290]) ("yas/modify-alist" function nil ("alist" "key" "value") nil "Modify ALIST to map KEY to VALUE. return the new alist." nil [36292 36540]) ("yas/fake-keymap-for-popup" function nil ("templates") nil "Create a fake keymap for popup menu usage." nil [36542 36940]) ("yas/point-to-coord" function nil ("&optional" "point") nil "Get the xoffset/yoffset information of POINT.
+If POINT is not given, default is to current point.
+If `posn-at-point' is not available (like in Emacs 21.3),
+t is returned simply." nil [36942 37380]) ("yas/x-popup-menu-for-template" function nil ("templates") nil "Show a popup menu listing templates to let the user select one." nil [37382 37602]) ("yas/text-popup-for-template" function nil ("templates") nil "Can't display popup menu in text mode. Just select the first one." nil [37603 37762]) ("yas/dropdown-list-popup-for-template" function nil ("templates") nil "Use dropdown-list.el to popup for templates. Better than the
+default \"select first\" behavior of `yas/text-popup-for-template'.
+You can also use this in window-system.
+
+NOTE: You need to download and install dropdown-list.el to use this." nil [37763 38479]) ("yas/popup-for-template" function nil ("templates") nil (if window-system (funcall yas/window-system-popup-function templates) (funcall yas/text-popup-function templates)) nil [38481 38651]) ("yas/load-directory-1" function nil ("directory" "&optional" "parent") nil "Really do the job of loading snippets from a directory
+hierarchy." nil [38653 39443]) ("yas/quote-string" function nil ("string") nil "Escape and quote STRING.
+foo\"bar\\! -> \"foo\\\"bar\\\\!\"" nil [39445 39746]) ("yas/compile-bundle" function nil ("&optional" "yasnippet" "yasnippet-bundle" "snippet-roots" "code") nil "Compile snippets in SNIPPET-ROOTS to a single bundle file.
+SNIPPET-ROOTS is a list of root directories that contains the snippets
+definition. YASNIPPET is the yasnippet.el file path. YASNIPPET-BUNDLE
+is the output file of the compile result. CODE is the code you would
+like to used to initialize yasnippet. Here's the default value for
+all the parameters:
+
+ (yas/compile-bundle \"yasnippet.el\"
+                     \"./yasnippet-bundle.el\"
+                     '(\"snippets\")
+                     \"(yas/initialize)\")" nil [39748 42583]) ("yas/about" function nil nil nil (interactive) nil [42731 42895]) ("yas/reload-all" function nil nil ((user-visible . t)) "Reload all snippets." nil [42896 43232]) ("yas/load-directory" function nil ("directory") ((user-visible . t)) "Load snippet definition from a directory hierarchy.
+Below the top-level directory, each directory is a mode
+name.  And under each subdirectory, each file is a definition
+of a snippet.  The file name is the trigger key and the
+content of the file is the template." nil [43234 43852]) ("yas/initialize" function nil nil nil "Do necessary initialization." nil [43854 44328]) ("yas/define-snippets" function nil ("mode" "snippets" "&optional" "parent-mode") nil "Define snippets for MODE.  SNIPPETS is a list of
+snippet definition, of the following form:
+
+ (KEY TEMPLATE NAME CONDITION)
+
+or the NAME and CONDITION may be omitted.  The optional 3rd
+parameter can be used to specify the parent mode of MODE.  That
+is, when looking a snippet in MODE failed, it can refer to its
+parent mode.  The PARENT-MODE may not need to be a real mode." nil [44330 46367]) ("yas/set-mode-parent" function nil ("mode" "parent") nil "Set parent mode of MODE to PARENT." nil [46369 46733]) ("yas/define" function nil ("mode" "key" "template" "&optional" "name" "condition") nil "Define a snippet.  Expanding KEY into TEMPLATE.
+NAME is a description to this template.  Also update
+the menu if `yas/use-menu' is `t'.  CONDITION is the
+condition attached to this snippet.  If you attach a
+condition to a snippet, then it will only be expanded
+when the condition evaluated to non-nil." nil [46735 47198]) ("yas/hippie-try-expand" function nil ("first-time?") nil "Integrate with hippie expand.  Just put this function in
+`hippie-expand-try-functions-list'." nil [47201 47678]) ("yas/expand" function nil nil ((user-visible . t)) "Expand a snippet." nil [47680 49038]) ("yas/next-field-group" function nil nil ((user-visible . t)) "Navigate to next field group.  If there's none, exit the snippet." nil [49040 50458]) ("yas/prev-field-group" function nil nil ((user-visible . t)) "Navigate to prev field group.  If there's none, exit the snippet." nil [50460 51366]) ("yas/exit-snippet" function nil ("snippet") ((user-visible . t)) "Goto exit-marker of SNIPPET and cleanup the snippe.  Cleaning
+up the snippet does not delete it!" nil [51368 51599]) ("yas/registered-snippets" variable nil nil nil "A hash table holding all active snippets" nil [52581 52662]) ("eval-when-compile" code nil [52663 52738]) ("yas/register-snippet" function nil ("snippet") nil "Register SNIPPET in the `yas/registered-snippets' table.  Add a
+`yas/check-cleanup-snippet' function to the buffer-local
+`post-command-hook' that should exist while at least one
+registered snippet exists in the current buffer.  Return snippet" nil [52740 53357]) ("yas/unregister-snippet" function nil ("snippet") nil "Unregister snippet from the `yas/registered-snippets'
+table.  Remove `yas/check-cleanup-snippet' from the buffer-local
+`post-command-hook' if no more snippets registered in the
+current buffer." nil [53359 53951]) ("yas/exterminate-snippets" function nil nil ((user-visible . t)) "Remove all locally registered snippets and remove
+  `yas/check-cleanup-snippet' from the `post-command-hook'" nil [53953 54219]) ("yas/cleanup-snippet" function nil ("snippet") nil "Cleanup SNIPPET, but leave point as it is.  This renders the
+snippet as ordinary text" nil [54221 55099]) ("yas/check-cleanup-snippet" function nil nil nil "Checks if point exited any of the fields of the snippet, if so
+clean it up.
+
+This function is part of `post-command-hook' while
+registered snippets last." nil [55101 56204]) ("yas/field-undo-history" variable nil nil nil "Saves the value of `buffer-undo-list' when undo information is
+to be recorded by `yas/field-undo-after-hook'.  A new piece of undo
+is pushed into this variable and it then replaces
+`buffer-undo-list' if appropriate." nil [57752 58007]) ("yas/field-undo-forbidden-commands" variable nil (quote (undo aquamacs-undo redo aquamacs-redo)) nil "A list of commands executed while a snippet is active that
+should not trigger any undo-recording action" nil [58009 58200]) ("yas/field-undo-before-hook" function nil nil nil "Saves the field-level undo history, `buffer-undo-list' into a global
+`yas/field-undo-history' variable just before a command is
+performed.  It will come in handy in case the command is to be undone" nil [58202 58490]) ("yas/field-undo-after-hook" function nil nil nil "Compares the value (a string) of the currently active snippet
+group with a previously saved one.  If these are different, undo
+information is added to `buffer-undo-list'
+
+This function is added to the `post-command-hook' and should
+be a part of that list while registered snippets last." nil [58492 60664]) ("yas/field-undo-group-text-change" function nil ("group" "old-text") nil "Undoes one step of field-level undo history, in the snippet
+  field group GROUP, replacing its text with OLD-TEXT, but
+  respecting any transforms." nil [60666 61218]) ("yas/debug-some-vars" function nil nil nil (interactive) nil [61283 62904]) ("yasnippet" package nil nil nil [62907 62927]) ("c-neutralize-syntax-in-CPP" function nil ("around" "yas-mp/c-neutralize-syntax-in-CPP" "activate") nil "Adviced `c-neutralize-syntax-in-CPP' to properly
+handle the end-of-buffer error fired in it by calling
+`forward-char' at the end of buffer." nil [63247 63570]) ("eval-when-compile" code nil [65941 65974]) ("dropdown-list-face" variable nil (quote ((t :inherit default :background "lightyellow" :foreground "black"))) ((user-visible . t)) "*Bla." nil [66049 66181]) ("dropdown-list-selection-face" variable nil (quote ((t :inherit dropdown-list-face :background "purple"))) ((user-visible . t)) "*Bla." nil [66183 66311]) ("dropdown-list-overlays" variable nil nil nil nil nil [66313 66348]) ("dropdown-list-hide" function nil nil nil (while dropdown-list-overlays (delete-overlay (pop dropdown-list-overlays))) nil [66350 66462]) ("dropdown-list-put-overlay" function nil ("beg" "end" "&optional" "prop" "value" "prop2" "value2") nil (let ((ov (make-overlay beg end))) (overlay-put ov (quote window) t) (when prop (overlay-put ov prop value) (when prop2 (overlay-put ov prop2 value2))) ov) nil [66464 66716]) ("dropdown-list-line" function nil ("start" "replacement" "&optional" "no-insert") nil (let ((end (+ start (length replacement))) beg-point end-point before-string after-string) (goto-char (point-at-eol)) (if (< (current-column) start) (progn (setq before-string (make-string (- start (current-column)) 32)) (setq beg-point (point))) (goto-char (point-at-bol)) (move-to-column start) (setq beg-point (point)) (when (> (current-column) start) (goto-char (1- (point))) (setq beg-point (point)) (setq before-string (make-string (- start (current-column)) 32)))) (move-to-column end) (setq end-point (point)) (let ((end-offset (- (current-column) end))) (when (> end-offset 0) (setq after-string (make-string end-offset 98)))) (when no-insert (setq before-string (when before-string (propertize before-string (quote face) (quote default)))) (setq after-string (when after-string (propertize after-string (quote face) (quote default))))) (let ((string (concat before-string replacement after-string))) (if no-insert string (push (dropdown-list-put-overlay beg-point end-point (quote invisible) t (quote after-string) string) dropdown-list-overlays)))) nil [66718 68201]) ("dropdown-list-start-column" function nil ("display-width") nil (let ((column (mod (current-column) (window-width))) (width (window-width))) (cond ((<= (+ column display-width) width) column) ((> column display-width) (- column display-width)) ((>= width display-width) (- width display-width)) (t nil))) nil [68203 68538]) ("dropdown-list-move-to-start-line" function nil ("candidate-count") nil (decf candidate-count) nil [68540 69135]) ("dropdown-list-at-point" function nil ("candidates" "&optional" "selidx") nil (dropdown-list-hide) nil [69137 70508]) ("dropdown-list" function nil ("candidates") nil (let ((selection) (temp-buffer)) (save-window-excursion (unwind-protect (let ((candidate-count (length candidates)) done key selidx) (while (not done) (unless (dropdown-list-at-point candidates selidx) (switch-to-buffer (setq temp-buffer (get-buffer-create "*selection*")) (quote norecord)) (delete-other-windows) (delete-region (point-min) (point-max)) (insert (make-string (length candidates) 10)) (goto-char (point-min)) (dropdown-list-at-point candidates selidx)) (setq key (read-key-sequence "")) (cond ((and (stringp key) (>= (aref key 0) 49) (<= (aref key 0) (+ 48 (min 9 candidate-count)))) (setq selection (- (aref key 0) 49) done t)) ((member key (\` ((\, (char-to-string 16)) [up]))) (setq selidx (mod (+ candidate-count (1- (or selidx 0))) candidate-count))) ((member key (\` ((\, (char-to-string 14)) [down]))) (setq selidx (mod (1+ (or selidx -1)) candidate-count))) ((member key (\` ((\, (char-to-string 12)))))) ((member key (\` ((\, (char-to-string 13)) [return]))) (setq selection selidx done t)) (t (setq done t))))) (dropdown-list-hide) (and temp-buffer (kill-buffer temp-buffer))) selection)) nil [70510 72365]) ("define-key*" function nil ("keymap" "key" "command") nil "Add COMMAND to the multiple-command binding of KEY in KEYMAP.
+Use multiple times to bind different COMMANDs to the same KEY." nil [72367 72612]) ("combine-command" function nil ("command" "defs") nil "$$$$$ FIXME - no doc string" nil [72614 73140]) ("command-selector-last-command" variable nil nil nil "$$$$$ FIXME - no doc string" nil [73142 73214]) ("command-selector" function nil ("&rest" "candidates") nil "$$$$$ FIXME - no doc string" nil [73216 74107]) ("dropdown-list" package nil nil nil [74131 74155]))
+    )
+   )
+  )

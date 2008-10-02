@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : redirect_to (action)
+# --
+redirect_to :action => "${1:index}"

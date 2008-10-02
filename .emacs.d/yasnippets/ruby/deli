@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : delete_if { |e| .. }
+# --
+delete_if { |${1:e}| $0 }

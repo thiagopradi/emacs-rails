@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : mattr_accessor
+# --
+mattr_accessor :${0:attr_names}

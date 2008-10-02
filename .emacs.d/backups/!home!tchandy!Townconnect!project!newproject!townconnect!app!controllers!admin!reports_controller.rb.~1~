@@ -1,0 +1,145 @@
+class Admin::ReportsController < ApplicationController
+  before_filter :login_required
+  before_filter :admin_verify, :only => [:admin_index]
+  before_filter :partner_verify, :only => [:month_report, :total_report, :week_report, :weekly_new_report]
+  before_filter :partner_params, :only => [:partner_index]
+  layout nil 
+  require "base64"
+  require "fastercsv"
+  include ReportGenerator
+  
+  
+  def index
+    admin? ? redirect_to (:action => "admin_index") : redirect_to (:action => "partner_index")
+  end
+
+  def partner_index
+     @partner = params[:partner]
+     cities = Skin.find_cities_in_partner(params[:partner])
+     @newpeople = []
+     cities.each do |city|
+        @newpeople << User.find_new_users_today(city)
+     end
+     @newactivated = []
+     cities.each do |city|
+        @newactivated << User.find_new_users_activated_today(city)
+     end
+  end
+  
+  
+  def admin_index
+    @users = User.signup_today
+    @usersactivated = User.activated_today
+    @posts = Post.find_most_active_person(10)
+    @activeusers = Array.new
+    @posts.each do |post|
+    	@activeusers << Person.find_by_id(post.person_id)
+    end
+    @groups = Group.find_most_active_users(10)
+    @usergroups = Array.new
+    @groups.each do |group|
+    	@usergroups << Person.find_by_id(group.created_by)
+    end
+    @connections = Connection.find_most_active_person(10)
+    @userconnections = Array.new
+    @connections.each do |connection|
+    	@userconnections << Person.find_by_id(connection.source_id)
+    end
+   
+    @commentsweek = Comment.find_comments_in_this_week
+    @commentstoday = Comment.find_by_created_date(Date.today)
+    @commentsmonth = Comment.find_comments_in_this_month
+   
+    @calendareventsweek = CalendarEvent.find_events_in_this_week
+    @calendareventstoday = CalendarEvent.find_by_created_date(Date.today)
+    @calendareventsmonth = CalendarEvent.find_events_in_this_month
+    
+    @photosweek = Photo.find_photos_in_this_week
+    @photostoday = Photo.find_by_created_date(Date.today)
+    @photosmonth = Photo.find_photos_in_this_month
+  end
+
+  def month_report
+    partner = Skin.find_cities_in_partner(params[:partner])
+    @dadosfinais = generate_monthly_report(partner)
+    if params[:filetype] == "csv"
+      csvarchive = generate_monthly_csv_report(@dadosfinais,params[:partner].to_s)
+      send_csv csvarchive
+    else
+      case params[:partner]
+          when "packet" then render :action => "month_packet"  
+          when "wickedlocal" then render :action => "month_wickedlocal" 
+      end
+    end 
+  end
+   
+  def total_report
+     cities = Skin.find_cities_in_partner(params[:partner])
+     @newpeople = Array.new
+     cities.each do |city|
+        @newpeople << City.find_new_users(city)
+     end
+     if params[:filetype] == "csv"
+       csvarchive = generate_total_csv_report(@newpeople,params[:partner].to_s)
+       send_csv csvarchive
+     else
+       case params[:partner]
+          when "packet" then render :action => "packet" 
+          when "wickedlocal" then render :action => "wickedlocal" 
+       end
+     end 
+  end
+
+  def week_report
+    @partner = params[:partner]
+    partner = Skin.find_cities_in_partner(params[:partner])
+    @dadosfinais = generate_weekly_report(partner)
+    if params[:filetype] == "csv"
+      csvarchive = generate_weekly_csv_report(@dadosfinais,params[:partner].to_s)
+      send_csv csvarchive
+    end 
+  end
+
+  def weekly_new_report
+    @partner = params[:partner]
+    partner = Skin.find_cities_in_partner(params[:partner])
+    @dadosfinais = generate_weekly_new_users_report(partner)
+    if params[:filetype] == "csv"
+      csvarchive = generate_weekly_new_users_csv_report(@dadosfinais,params[:partner].to_s)
+      send_csv csvarchive
+    end 
+  end
+
+
+private    
+    def send_csv(archive)
+    	send_data archive, :type => "text/plain", :filename=>"#{params[:partner]}.csv", :disposition => 'attachment'
+    end
+    
+    def admin_verify
+      admin? ? true : render (:action => "acessdenied")
+    end
+   
+  def partner_verify
+     case params[:partner]
+       when "wickedlocal" then current_user.login =~ /wickedlocal@townconnect.com|@townconnect/ ? true : render (:action => "acessdenied")
+       when "packet" then current_user.login =~ /packet@townconnect.com|@townconnect/ ? true : render (:action => "acessdenied")
+       else render (:action => "acessdenied")
+     end
+  end
+
+  def partner_params
+     case current_user.login
+       when /wickedlocal/ then params[:partner] = "wickedlocal"
+       when /packet/ then params[:partner] = "packet"
+       else render (:action => "acessdenied")
+     end
+  end
+  
+  def admin?
+      current_user.login =~ /mike@townconnect.com/ ? true : 
+      current_user.login =~ /oz@townconnect.com/ ? true : 
+      current_user.login =~ /thiago@townconnect.com/ ? true : 
+      current_user.login =~ /fabio@townconnect.com/ ? true : false
+  end
+end

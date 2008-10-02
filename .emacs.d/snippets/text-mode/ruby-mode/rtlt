@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : render (text, layout =&gt; true)
+# --
+render :text => "${1:text to render...}", :layout => ${2:true}

@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : :yields:
+# --
+ :yields: ${0:arguments}

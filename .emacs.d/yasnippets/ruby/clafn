@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : class_from_name()
+# --
+split("::").inject(Object) { |par, const| par.const_get(const) }

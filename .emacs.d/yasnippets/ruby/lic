@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : link_to (controller)
+# --
+${TM_RAILS_TEMPLATE_START_RUBY_EXPR}link_to "${1:link text...}", :controller => "${2:items}"${TM_RAILS_TEMPLATE_END_RUBY_EXPR}

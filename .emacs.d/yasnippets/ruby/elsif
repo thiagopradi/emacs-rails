@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : elsif ...
+# --
+elsif ${1:condition}
+	$0

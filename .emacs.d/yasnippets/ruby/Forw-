@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : extend Forwardable
+# --
+extend Forwardable

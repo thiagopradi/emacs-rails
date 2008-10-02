@@ -1,0 +1,8 @@
+# -*- mode: yasnippet -*-
+#name : describe (type)
+# --
+describe ${1:Type} do
+  it "should ${2:description}" do
+    $0
+  end
+end

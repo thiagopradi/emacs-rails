@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : should_not raise_error
+# --
+lambda { $1 }.should_not raise_error(${2:error})
+$0

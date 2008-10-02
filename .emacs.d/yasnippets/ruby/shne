@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : should_not eql
+# --
+${1:target}.should_not eql(${2:value})
+$0

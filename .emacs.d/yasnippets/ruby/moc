@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : mock
+# --
+${1:var} = mock("${2:mock_name}"${3:, :null_object => true})
+$0

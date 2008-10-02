@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : each_slice(..) { |group| .. }
+# --
+each_slice(${1:2}) { |${2:group}| $0 }

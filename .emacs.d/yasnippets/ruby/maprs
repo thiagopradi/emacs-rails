@@ -1,0 +1,6 @@
+# -*- mode: yasnippet -*-
+#name : map.resources
+# --
+${1:map}.resources :${2:resource}${10: do |${11:$2}|
+  $0
+end}

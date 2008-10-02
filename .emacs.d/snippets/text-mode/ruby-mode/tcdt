@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : Table column datetime
+# --
+t.datetime :${1:title}
+$0

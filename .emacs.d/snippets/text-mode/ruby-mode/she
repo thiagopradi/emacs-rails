@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : should eql
+# --
+${1:target}.should eql(${2:value})
+$0

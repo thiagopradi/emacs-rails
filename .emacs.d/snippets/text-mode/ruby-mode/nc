@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : named_scope
+# --
+named_scope :name${1:, :joins => :${2:table}}, :conditions => ${3:['${4:${5:field} = ?}', ${6:true}]}

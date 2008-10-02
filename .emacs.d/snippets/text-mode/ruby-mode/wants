@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : wants.format
+# --
+wants.${1:js|xml|html}${2: { $0 \}}

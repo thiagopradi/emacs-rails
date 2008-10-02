@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : find { |e| .. }
+# --
+find { |${1:e}| $0 }

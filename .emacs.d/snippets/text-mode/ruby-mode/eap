@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : each_pair { |name, val| .. }
+# --
+each_pair { |${1:name}, ${2:val}| $0 }

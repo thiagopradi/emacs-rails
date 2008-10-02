@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : redirect_to (controller)
+# --
+redirect_to :controller => "${1:items}"

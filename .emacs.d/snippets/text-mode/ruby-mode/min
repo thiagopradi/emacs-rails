@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : min { |a, b| .. }
+# --
+min { |a, b| $0 }

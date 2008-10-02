@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : xhr delete
+# --
+xhr :delete, :${1:destroy}, :id => ${2:1}$0

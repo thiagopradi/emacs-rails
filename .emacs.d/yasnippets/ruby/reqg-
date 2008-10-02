@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : require_gem ".."
+# --
+require "$0"

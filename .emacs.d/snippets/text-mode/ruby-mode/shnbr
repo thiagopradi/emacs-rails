@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : should_not be_redirect
+# --
+response.should_not be_redirect
+$0

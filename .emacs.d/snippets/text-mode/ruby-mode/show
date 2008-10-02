@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : page.show (*ids)
+# --
+page.show ${1:"${2:id(s)}"}

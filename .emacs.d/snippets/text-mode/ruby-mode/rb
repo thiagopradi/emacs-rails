@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : #!/usr/bin/env ruby -wKU
+# --
+#!/usr/bin/env ruby${TM_RUBY_SWITCHES: -wKU}

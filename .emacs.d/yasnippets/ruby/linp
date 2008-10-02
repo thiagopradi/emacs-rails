@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : link_to (nested path)
+# --
+${TM_RAILS_TEMPLATE_START_RUBY_EXPR}link_to ${1:"${2:link text...}"}, ${3:${12:parent}_${13:child}_path(${14:@}${15:${12}}, ${16:@}${17:${13}})}${TM_RAILS_TEMPLATE_END_RUBY_EXPR}

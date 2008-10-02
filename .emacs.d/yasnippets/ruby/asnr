@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : assert_nothing_raised(..) { .. }
+# --
+assert_nothing_raised(${1:Exception}) { $0 }

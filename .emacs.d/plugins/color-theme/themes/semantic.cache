@@ -1,0 +1,14 @@
+;; Object semantic.cache
+;; SEMANTICDB Tags save file
+(semanticdb-project-database "semantic.cache"
+  :file "semantic.cache"
+  :tables (list 
+   (semanticdb-table "color-theme-twilight.el"
+    :file "color-theme-twilight.el"
+    :pointmax 2933
+    :major-mode 'emacs-lisp-mode
+    :tokens '(("color-theme-twilight" function nil nil ((user-visible . t)) "Color theme by Marcus Crafter, based off the TextMate Twilight theme, created 2008-04-18" nil [837 2933]))
+    :unmatched-syntax 'nil
+    )
+   )
+  )

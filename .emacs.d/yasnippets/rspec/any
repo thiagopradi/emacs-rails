@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : and_yield
+# --
+and_yield(${1:values})

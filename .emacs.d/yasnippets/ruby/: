@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : Hash Pair — :key =&gt; "value"
+# --
+:${1:key} => ${2:"${3:value}"}${4:, }

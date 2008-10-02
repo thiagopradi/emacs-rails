@@ -1,0 +1,6 @@
+# -*- mode: yasnippet -*-
+#name : it
+# --
+it "${2:should ${1:description}}" ${3:do
+  $0
+end}

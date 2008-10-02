@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : each_char { |chr| .. }
+# --
+each_char { |${1:chr}| $0 }

@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : assert_throws(..) { .. }
+# --
+assert_throws(:${1:expected}) { $0 }

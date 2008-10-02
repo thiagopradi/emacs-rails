@@ -1,0 +1,11 @@
+;; Object semantic.cache
+;; SEMANTICDB Tags save file
+(semanticdb-project-database "semantic.cache"
+  :file "semantic.cache"
+  :tables (list 
+   (semanticdb-table ".emacs"
+    :file ".emacs"
+    :major-mode 'emacs-lisp-mode
+    )
+   )
+  )

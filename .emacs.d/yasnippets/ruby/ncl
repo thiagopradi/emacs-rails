@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : named_scope lambda
+# --
+named_scope :name, lambda { |${1:param}| { :conditions => ${3:['${4:${5:field} = ?}', ${6:$1}]} } }

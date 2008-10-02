@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : logger.fatal
+# --
+logger.fatal { "${1:message}" }$0

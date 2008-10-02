@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : Create Several Columns in Table
+# --
+t.column ${1:title}, :${2:string}
+mccc$0

@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : redirect_to (action, id)
+# --
+redirect_to :action => "${1:show}", :id => ${0:@item}

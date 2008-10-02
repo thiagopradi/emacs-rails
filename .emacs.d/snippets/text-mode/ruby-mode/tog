@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : page.toggle (*ids)
+# --
+page.toggle ${1:"${2:id(s)}"}

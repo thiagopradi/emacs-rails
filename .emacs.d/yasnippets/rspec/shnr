@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : should_not_receive
+# --
+${1:mock}${1/^.+$/./}should_not_receive(:${2:message})

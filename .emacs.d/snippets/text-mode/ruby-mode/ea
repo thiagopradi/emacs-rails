@@ -1,0 +1,4 @@
+# -*- mode: yasnippet -*-
+#name : each { |e| .. }
+# --
+each { |${1:e}| $0 }

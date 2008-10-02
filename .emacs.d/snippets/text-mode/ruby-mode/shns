@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : should_not satisfy
+# --
+${1:target}.should_not satisfy { |obj| $2 }
+$0

@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : should satisfy
+# --
+${1:target}.should satisfy { |obj| $2 }
+$0

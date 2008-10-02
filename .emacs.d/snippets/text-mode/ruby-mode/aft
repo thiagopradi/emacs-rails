@@ -1,0 +1,6 @@
+# -*- mode: yasnippet -*-
+#name : after
+# --
+after(${1::each}) do
+  $0
+end

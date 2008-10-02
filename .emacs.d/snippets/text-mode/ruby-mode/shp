@@ -1,0 +1,5 @@
+# -*- mode: yasnippet -*-
+#name : should predicate
+# --
+${1:target}.should ${2:be_${3:predicate}} $4
+$0
