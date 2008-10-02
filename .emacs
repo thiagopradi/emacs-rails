@@ -134,7 +134,7 @@
  '(cua-mode t nil (cua-base))
  '(display-time-mode t)
  '(ecb-options-version "2.33beta2")
- '(ecb-source-path (quote ("/home/tchandy/Townconnect/project/newproject/" "")))
+ '(ecb-source-path (quote ("/home/" "")))
  '(flymake-js-off t)
  '(flymake-php-off t)
  '(inhibit-startup-screen t)
