@@ -21,9 +21,9 @@ Por favor, verifique o manual para preguiçosos do mesmo em /dev/null.
 
 ## Desenvolvedores 
 
-[Thiago Pradi][tp] (Mantenedor)
-*[Ramon Soares][rm] (Base do projeto)
-*[Marcos Zimmermann][mz] (Contribuidor)
+[Thiago Pradi][tp] 
+[Ramon Soares][rm] 
+[Marcos Zimmermann][mz] 
 
 
 [rm]: http://blog.ramonsoares.com/
