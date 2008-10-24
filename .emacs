@@ -1,28 +1,28 @@
-(setq user-full-name "Ramon Soares")
-(setq user-mail-address "eu@ramonsoares.com")
+(setq user-full-name "Thiago Pradi")
+(setq user-mail-address "thiago@townconnect.com")
 (prefer-coding-system 'utf-8)
 
 (setq load-path
- 	(append (list nil "~/.emacs.d"
-			 "~/.emacs.d/plugins"
-			 "~/.emacs.d/includes"
-			 "~/.emacs.d/plugins/color-theme"
-			 "~/.emacs.d/plugins/nxhtml"
-			 "~/.emacs.d/plugins/rinari"
-			 "~/.emacs.d/plugins/rinari/rhtml"
-			 "~/.emacs.d/plugins/emacs-rails"
-			 "~/.emacs.d/plugins/eieio"
-			 "~/.emacs.d/plugins/semantic"
-			 "~/.emacs.d/plugins/speedbar"
-			 "~/.emacs.d/plugins/ecb"
+        (append (list nil "~/.emacs.d"
+                         "~/.emacs.d/plugins"
+                         "~/.emacs.d/includes"
+                         "~/.emacs.d/plugins/color-theme"
+                         "~/.emacs.d/plugins/nxhtml"
+                         "~/.emacs.d/plugins/rinari"
+                         "~/.emacs.d/plugins/rinari/rhtml"
+                         "~/.emacs.d/plugins/emacs-rails"
+                         "~/.emacs.d/plugins/eieio"
+                         "~/.emacs.d/plugins/semantic"
+                         "~/.emacs.d/plugins/speedbar"
+                         "~/.emacs.d/plugins/ecb"
                          "~/.emacs.d/plugins/jump.el")
-	 		 load-path))
+                         load-path))
 
 ; Color Theme
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-twilight)
-			 
+
 ; Configurações dos Snippets
 (require 'yasnippet)
 (yas/initialize)
@@ -40,23 +40,24 @@
 ; Ruby Mode
 (autoload 'ruby-mode "ruby-mode" "Major mode for editing ruby scripts." t)
 (setq auto-mode-alist  (cons '(".rb$" . ruby-mode) auto-mode-alist))
+(setq auto-mode-alist  (cons '(".erb$" . ruby-mode) auto-mode-alist))
 
 (add-hook 'ruby-mode-hook
   (lambda()
     (add-hook 'local-write-file-hooks
       '(lambda()
         (save-excursion
-	      (untabify (point-min) (point-max))
-	      (delete-trailing-whitespace)
-	  	)
-   	  )
-	)
-	(set (make-local-variable 'indent-tabs-mode) 'nil)
-	(set (make-local-variable 'tab-width) 2)
-	(imenu-add-to-menubar "IMENU")
-	(define-key ruby-mode-map "C-m" 'newline-and-indent)
-	(require 'ruby-electric)
-	(ruby-electric-mode t)
+              (untabify (point-min) (point-max))
+              (delete-trailing-whitespace)
+                )
+          )
+        )
+        (set (make-local-variable 'indent-tabs-mode) 'nil)
+        (set (make-local-variable 'tab-width) 2)
+        (imenu-add-to-menubar "IMENU")
+        (define-key ruby-mode-map "C-m" 'newline-and-indent)
+        (require 'ruby-electric)
+        (ruby-electric-mode t)
   )
 )
 
@@ -67,7 +68,7 @@
 ; XHTML Mode
 (load "autostart.el")
 (require 'mumamo-fun)
-           
+
 (setq
   nxhtml-global-minor-mode t
   mumamo-chunk-coloring 'submode-colored
@@ -77,6 +78,8 @@
   nxml-degraded t
 )
 (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-nxhtml-mumamo))
+(add-to-list 'auto-mode-alist '("\.html.erb$" . html-mode))
+
 
 ; Php Mode
 (require 'php-mode)
@@ -116,7 +119,18 @@
 (setq semantic-load-turn-everything-on t)
 (require 'semantic-load)
 (require 'ecb)
-(setq ecb-windows-width 0.22)
+(require 'ecb-autoloads)
+(custom-set-variables
+ '(ecb-enlarged-compilation-window-max-height (quote best))
+ '(ecb-eshell-auto-activate nil)
+ '(ecb-layout-name "town")
+ '(ecb-layout-nr 9)
+ '(ecb-non-semantic-parsing-function nil)
+ '(ecb-options-version "2.32")
+ '(ecb-other-window-behavior (quote edit-and-compile))
+ '(ecb-other-window-jump-behavior (quote edit-and-compile))
+ '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
+ '(ecb-tip-of-the-day nil))
 
 
 (custom-set-faces
@@ -124,6 +138,7 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "black" :foreground "#F8F8F8" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 106 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
  '(bm-persistent-face ((((class color) (background light)) (:background "MistyRose" :foreground "Black"))))
  '(font-lock-comment-face ((((class color) (min-colors 88) (background light)) (:foreground "grey64" :slant italic :family "-*-helvetica-medium-*-*-*-12-*-*-*-*-*-*-*")))))
 (custom-set-variables
@@ -133,8 +148,9 @@
   ;; If there is more than one, they won't work right.
  '(cua-mode t nil (cua-base))
  '(display-time-mode t)
- '(ecb-options-version "2.33beta2")
- '(ecb-source-path (quote ("/home/" "")))
+ '(ecb-layout-window-sizes (quote (("town" (0.21794871794871795 . 0.4878048780487805) (0.21794871794871795 . 0.4878048780487805)) ("left-analyse" (0.21794871794871795 . 0.43902439024390244) (0.21794871794871795 . 0.34146341463414637) (0.21794871794871795 . 0.0975609756097561) (0.21794871794871795 . 0.0975609756097561)))))
+ '(ecb-options-version "2.32")
+ '(ecb-source-path (quote ("" ("/home/tchandy/Townconnect/novo/townconnect" "oldtownconnect") ("/home/tchandy/Townconnect/townconnect2" "townconnect2") ("/home/tchandy/Townconnect/project/novo" "Old Townconnect"))))
  '(flymake-js-off t)
  '(flymake-php-off t)
  '(inhibit-startup-screen t)
@@ -143,8 +159,7 @@
  '(php-mode-hook (quote (wicked/php-mode-init)))
  '(scroll-bar-mode (quote right))
  '(tool-bar-mode nil)
- '(tooltip-mode nil)
- '(transient-mark-mode t))
+ '(tooltip-mode nil))
 
 ; Configurando o sistema de backup do Emacs
 (setq backup-by-copying t               ; don't clobber symlinks
