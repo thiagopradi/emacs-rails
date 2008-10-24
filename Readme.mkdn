@@ -1,10 +1,11 @@
-# Emacs configurado para projetos rails
+# Emacs-rails
 
 ## O que é?
 
-Alguns plugins e configurações para transformarem o Emacs em um editor 
-melhor para Ruby on Rails, PHP e HTML. O Projeto foi retirado a partir 
-das configurações do Emacs feitas pelo [Ramon Soares][rm] 
+Uma reunião de  plugins e configurações para transformarem o Emacs em um 
+editor melhor para Ruby on Rails. Ele também contem algumas 
+configurações para PHP e HTML. O Projeto foi retirado a partir das 
+configurações do Emacs cedidas pelo [Ramon Soares][rm] 
 
 ## Como Instalar?
 
@@ -21,8 +22,8 @@ Por favor, verifique o manual para preguiçosos do mesmo em /dev/null.
 ## Desenvolvedores 
 
 [Thiago Pradi][tp] (Mantenedor)
-[Ramon Soares][rm] (Base do projeto)
-[Marcos Zimmermann][mz] (Contribuidor)
+*[Ramon Soares][rm] (Base do projeto)
+*[Marcos Zimmermann][mz] (Contribuidor)
 
 
 [rm]: http://blog.ramonsoares.com/
