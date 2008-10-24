@@ -1,5 +1,5 @@
 (setq user-full-name "Thiago Pradi")
-(setq user-mail-address "thiago@townconnect.com")
+(setq user-mail-address "")
 (prefer-coding-system 'utf-8)
 
 (setq load-path
@@ -150,7 +150,7 @@
  '(display-time-mode t)
  '(ecb-layout-window-sizes (quote (("town" (0.21794871794871795 . 0.4878048780487805) (0.21794871794871795 . 0.4878048780487805)) ("left-analyse" (0.21794871794871795 . 0.43902439024390244) (0.21794871794871795 . 0.34146341463414637) (0.21794871794871795 . 0.0975609756097561) (0.21794871794871795 . 0.0975609756097561)))))
  '(ecb-options-version "2.32")
- '(ecb-source-path (quote ("" ("/home/tchandy/Townconnect/novo/townconnect" "oldtownconnect") ("/home/tchandy/Townconnect/townconnect2" "townconnect2") ("/home/tchandy/Townconnect/project/novo" "Old Townconnect"))))
+ '(ecb-source-path (quote (""("~" "Home"))))
  '(flymake-js-off t)
  '(flymake-php-off t)
  '(inhibit-startup-screen t)
