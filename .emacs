@@ -1,5 +1,5 @@
-(setq user-full-name "Thiago Pradi")
-(setq user-mail-address "thiago@townconnect.com")
+(setq user-full-name "User")
+(setq user-mail-address "user@user.com")
 (prefer-coding-system 'utf-8)
 
 (setq load-path
@@ -143,7 +143,7 @@
  '(ecb-other-window-behavior (quote edit-and-compile))
  '(ecb-other-window-jump-behavior (quote edit-and-compile))
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
- '(ecb-source-path (quote (("/home/tchandy/Townconnect/townconnect2" "townconnect2") ("/home/tchandy/Townconnect/project/novo" "Old Townconnect") ("/home/tchandy/Townconnect/newtownconnect2/segundo_branch" "Segundo Branch") "/home/tchandy" ("/home/tchandy/Projetos/ProjetoImoveis" "Projetos") ("/" "Root") ("/usr/lib/ruby" "Ruby 1.8") ("/home/tchandy/Townconnect/reportsgogo/townconnect" "Town Velha") ("/home/tchandy/Projetos" "Projetos") (#("/home/tchandy/Townconnect/townconnect2/newbranch/townconnect-2-0" 0 64 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "New Townconnect"))))
+ '(ecb-source-path (quote ("/home/" "Home")))
  '(ecb-tip-of-the-day nil)
  '(flymake-js-off t)
  '(flymake-php-off t)
