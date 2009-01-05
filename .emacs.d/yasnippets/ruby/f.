@@ -1,4 +1,0 @@
-# -*- mode: yasnippet -*-
-#name : f.check_box (ffcb)
-# --
-${TM_RAILS_TEMPLATE_START_RUBY_EXPR}f.check_box :${1:attribute}${TM_RAILS_TEMPLATE_END_RUBY_EXPR}
