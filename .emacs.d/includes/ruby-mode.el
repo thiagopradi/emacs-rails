@@ -123,10 +123,7 @@
   (define-key ruby-mode-map "\e\C-q" 'ruby-indent-exp)
   (define-key ruby-mode-map "\t" 'ruby-indent-command)
   (define-key ruby-mode-map "\C-c\C-e" 'ruby-insert-end)
-  (define-key ruby-mode-map "\C-j" 'ruby-reindent-then-newline-and-indent)
-  (define-key ruby-mode-map "\C-m" 'newline)
-  (define-key ruby-mode-map "\S-c" 'ruby-insert-c))
-
+  (define-key ruby-mode-map "\C-j" 'ruby-reindent-then-newline-and-indent))
 (defvar ruby-mode-syntax-table nil
   "Syntax table in use in ruby-mode buffers.")
 
@@ -471,7 +468,7 @@ The variable ruby-indent-level controls the amount of indentation.
          (t
           (setq in-string (point))
           (goto-char end))))
-       ((looking-at "/=") 
+       ((looking-at "/=")
         (goto-char pnt))
        ((looking-at "/")
         (cond
@@ -726,7 +723,7 @@ The variable ruby-indent-level controls the amount of indentation.
           (setq indent (ruby-indent-size (current-column) (nth 2 state))))
          (t
           (setq indent (+ (current-column) ruby-indent-level)))))
-       
+
        ((and (nth 2 state) (< (nth 2 state) 0)) ; in negative nest
         (setq indent (ruby-indent-size (current-column) (nth 2 state)))))
       (when indent
@@ -1020,9 +1017,6 @@ An end of a defun is found by moving forward from the beginning of one."
   (ruby-indent-line t)
   (end-of-line))
 
-(defun ruby-insert-c ()
-	(interactive)
-	(insert "C"))
 
 (defun ruby-mark-defun ()
   "Put mark at end of this Ruby function, point at beginning."
@@ -1066,7 +1060,7 @@ balanced expression is found."
                (concat "^[ \t]*\\(def\\|class\\|module\\)[ \t]+"
                        "\\("
                        ;; \\. and :: for class method
-                        "\\([A-Za-z_]" ruby-symbol-re "*\\|\\.\\|::" "\\)" 
+                        "\\([A-Za-z_]" ruby-symbol-re "*\\|\\.\\|::" "\\)"
                         "+\\)")
                nil t)
               (progn
