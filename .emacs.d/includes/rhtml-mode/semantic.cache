@@ -1,0 +1,22 @@
+;; Object semantic.cache
+;; SEMANTICDB Tags save file
+(semanticdb-project-database "semantic.cache"
+  :file "semantic.cache"
+  :tables (list 
+   (semanticdb-table "rhtml-mode.el"
+    :file "rhtml-mode.el"
+    :pointmax 4152
+    :major-mode 'emacs-lisp-mode
+    :tokens '(("rhtml-fonts" include nil nil nil [1772 1794]) ("rhtml-sgml-hacks" include nil nil nil [1862 1889]) ("define-derived-mode" code nil [1915 2100]) ("add-to-list" code nil [2102 2165]) ("define-key" code nil [2167 2260]) ("define-key" code nil [2261 2325]) ("extract-partial" function nil ("begin" "end" "partial-name") nil (interactive "r
+sName your partial: ") nil [2327 2599]) ("rhtml-dashize" function nil ("&optional" "mode") ((user-visible . t)) "Add or remove dashes from the end of ERb blocks. The dash tells ERb to
+strip the following newline. This function will NOT add or remove dashes
+from blocks that end in a # or #- sequence.
+
+MODE controls how dashes are added or removed. If MODE is `strip' then all
+ERb blocks will have the dash removed. If MODE is `add' then all blocks
+will have a dash added. If MODE is `auto' or nil then ERb blocks which are
+followed by a newline will have a dash added while all other blocks will
+have the dash removed." nil [2691 4100]) ("rhtml-navigation" include nil nil nil [4103 4130]) ("rhtml-mode" package nil nil nil [4131 4152]))
+    )
+   )
+  )

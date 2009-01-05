@@ -124,7 +124,8 @@
   (define-key ruby-mode-map "\t" 'ruby-indent-command)
   (define-key ruby-mode-map "\C-c\C-e" 'ruby-insert-end)
   (define-key ruby-mode-map "\C-j" 'ruby-reindent-then-newline-and-indent)
-  (define-key ruby-mode-map "\C-m" 'newline))
+  (define-key ruby-mode-map "\C-m" 'newline)
+  (define-key ruby-mode-map "\S-c" 'ruby-insert-c))
 
 (defvar ruby-mode-syntax-table nil
   "Syntax table in use in ruby-mode buffers.")
@@ -1018,6 +1019,10 @@ An end of a defun is found by moving forward from the beginning of one."
   (insert "end")
   (ruby-indent-line t)
   (end-of-line))
+
+(defun ruby-insert-c ()
+ (interactive)
+ (insert "C"))
 
 (defun ruby-mark-defun ()
   "Put mark at end of this Ruby function, point at beginning."
