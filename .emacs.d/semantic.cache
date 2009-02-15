@@ -1,0 +1,17 @@
+;; Object semantic.cache
+;; SEMANTICDB Tags save file
+(semanticdb-project-database "semantic.cache"
+  :file "semantic.cache"
+  :tables (list 
+   (semanticdb-table "ack.el"
+    :file "ack.el"
+    :pointmax 1972
+    :major-mode 'emacs-lisp-mode
+    :tokens '(("compile" include nil nil nil [1 19]) ("thingatpt" include nil nil nil [20 40]) ("ack-command" variable nil "ack" nil "The command run by the ack function." nil [42 107]) ("ack-mode-font-lock-keywords" variable nil (quote (("^\\(Compilation\\|Ack\\) started.*" (0 (quote (face nil message nil help-echo nil mouse-face nil)) t)))) nil nil nil [109 253]) ("ack-use-search-in-buffer-name" variable nil t nil "If non-nil, use the search string in the ack buffer's name." nil [255 359]) ("define-compilation-mode" code nil [361 464]) ("ack" function nil ("dir" "pattern" "args") ((user-visible . t)) "Run ack, with user-specified ARGS, and collect output in a buffer.
+While ack runs asynchronously, you can use the \\[next-error] command to
+find the text that ack hits refer to. The command actually run is
+defined by the ack-command variable." nil [466 1949]) ("ack-emacs" package nil nil nil [1951 1971]))
+    :unmatched-syntax 'nil
+    )
+   )
+  )

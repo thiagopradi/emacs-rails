@@ -1,17 +1,63 @@
-;;;
-;;;  ruby-mode.el -
-;;;
-;;;  $Author: matz $
-;;;  created at: Fri Feb  4 14:49:13 JST 1994
-;;;
+;;; ruby-mode.el --- Major mode for editing Ruby files
 
-(defconst ruby-mode-revision "$Revision: 19208 $"
+;; Copyright (C) 1994, 1995, 1996 1997, 1998, 1999, 2000, 2001,
+;;   2002,2003, 2004, 2005, 2006, 2007, 2008
+;;   Free Software Foundation, Inc.
+
+;; Authors: Yukihiro Matsumoto, Nobuyoshi Nakada
+;; URL: http://www.emacswiki.org/cgi-bin/wiki/RubyMode
+;; Created: Fri Feb  4 14:49:13 JST 1994
+;; Keywords: languages ruby
+;; Version: 0.9
+
+;; This file is not part of GNU Emacs. However, a newer version of
+;; ruby-mode is included in recent releases of GNU Emacs (version 23
+;; and up), but the new version is not guaranteed to be compatible
+;; with older versions of Emacs or XEmacs. This file is the last
+;; version that aims to keep this compatibility.
+
+;; You can also get the latest version from the Emacs Lisp Package
+;; Archive: http://tromey.com/elpa
+
+;; This file is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; It is distributed in the hope that it will be useful, but WITHOUT
+;; ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+;; or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public
+;; License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with it.  If not, see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; Provides font-locking, indentation support, and navigation for Ruby code.
+;;
+;; If you're installing manually, you should add this to your .emacs
+;; file after putting it on your load path:
+;;
+;;    (autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
+;;    (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+;;    (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+;;
+
+;;; Code:
+
+(defconst ruby-mode-revision "$Revision$"
   "Ruby mode revision string.")
 
 (defconst ruby-mode-version
   (and (string-match "[0-9.]+" ruby-mode-revision)
        (substring ruby-mode-revision (match-beginning 0) (match-end 0)))
   "Ruby mode version number.")
+
+(defconst ruby-keyword-end-re
+  (if (string-match "\\_>" "ruby")
+      "\\_>"
+    "\\>"))
 
 (defconst ruby-block-beg-keywords
   '("class" "module" "def" "if" "unless" "case" "while" "until" "for" "begin" "do")
@@ -22,7 +68,7 @@
   "Regexp to match the beginning of blocks.")
 
 (defconst ruby-non-block-do-re
-  (concat (regexp-opt '("while" "until" "for" "rescue") t) "\\_>")
+  (concat (regexp-opt '("while" "until" "for" "rescue") t) ruby-keyword-end-re)
   "Regexp to match")
 
 (defconst ruby-indent-beg-re
@@ -123,7 +169,9 @@
   (define-key ruby-mode-map "\e\C-q" 'ruby-indent-exp)
   (define-key ruby-mode-map "\t" 'ruby-indent-command)
   (define-key ruby-mode-map "\C-c\C-e" 'ruby-insert-end)
-  (define-key ruby-mode-map "\C-j" 'ruby-reindent-then-newline-and-indent))
+  (define-key ruby-mode-map "\C-j" 'ruby-reindent-then-newline-and-indent)
+  (define-key ruby-mode-map "\C-m" 'newline))
+
 (defvar ruby-mode-syntax-table nil
   "Syntax table in use in ruby-mode buffers.")
 
@@ -161,19 +209,23 @@
 (defcustom ruby-indent-tabs-mode nil
   "*Indentation can insert tabs in ruby mode if this is non-nil."
   :type 'boolean :group 'ruby)
+(put 'ruby-indent-tabs-mode 'safe-local-variable 'booleanp)
 
 (defcustom ruby-indent-level 2
   "*Indentation of ruby statements."
   :type 'integer :group 'ruby)
+(put 'ruby-indent-level 'safe-local-variable 'integerp)
 
 (defcustom ruby-comment-column 32
   "*Indentation column of comments."
   :type 'integer :group 'ruby)
+(put 'ruby-comment-column 'safe-local-variable 'integerp)
 
 (defcustom ruby-deep-arglist t
   "*Deep indent lists in parenthesis when non-nil.
 Also ignores spaces after parenthesis when 'space."
   :group 'ruby)
+(put 'ruby-deep-arglist 'safe-local-variable 'booleanp)
 
 (defcustom ruby-deep-indent-paren '(?\( ?\[ ?\] t)
   "*Deep indent lists in parenthesis when non-nil. t means continuous line.
@@ -468,7 +520,7 @@ The variable ruby-indent-level controls the amount of indentation.
          (t
           (setq in-string (point))
           (goto-char end))))
-       ((looking-at "/=")
+       ((looking-at "/=") 
         (goto-char pnt))
        ((looking-at "/")
         (cond
@@ -568,7 +620,7 @@ The variable ruby-indent-level controls the amount of indentation.
        ((looking-at (concat "\\<\\(" ruby-block-beg-re "\\)\\>"))
         (and
          (save-match-data
-           (or (not (looking-at "do\\_>"))
+           (or (not (looking-at (concat "do" ruby-keyword-end-re)))
                (save-excursion
                  (back-to-indentation)
                  (not (looking-at ruby-non-block-do-re)))))
@@ -723,7 +775,7 @@ The variable ruby-indent-level controls the amount of indentation.
           (setq indent (ruby-indent-size (current-column) (nth 2 state))))
          (t
           (setq indent (+ (current-column) ruby-indent-level)))))
-
+       
        ((and (nth 2 state) (< (nth 2 state) 0)) ; in negative nest
         (setq indent (ruby-indent-size (current-column) (nth 2 state)))))
       (when indent
@@ -1017,7 +1069,6 @@ An end of a defun is found by moving forward from the beginning of one."
   (ruby-indent-line t)
   (end-of-line))
 
-
 (defun ruby-mark-defun ()
   "Put mark at end of this Ruby function, point at beginning."
   (interactive)
@@ -1060,7 +1111,7 @@ balanced expression is found."
                (concat "^[ \t]*\\(def\\|class\\|module\\)[ \t]+"
                        "\\("
                        ;; \\. and :: for class method
-                        "\\([A-Za-z_]" ruby-symbol-re "*\\|\\.\\|::" "\\)"
+                        "\\([A-Za-z_]" ruby-symbol-re "*\\|\\.\\|::" "\\)" 
                         "+\\)")
                nil t)
               (progn
@@ -1139,13 +1190,33 @@ balanced expression is found."
            (ruby-here-doc-beg-syntax))
           (,ruby-here-doc-end-re 3 (ruby-here-doc-end-syntax))))
 
-  (defun ruby-in-non-here-doc-string-p ()
-    (let ((syntax (syntax-ppss)))
-      (or (nth 4 syntax)
-          ;; In a string *without* a generic delimiter
-          ;; If it's generic, it's a heredoc and we don't care
-          ;; See `parse-partial-sexp'
-          (numberp (nth 3 syntax)))))
+  (unless (functionp 'syntax-ppss)
+    (defun syntax-ppss (&optional pos)
+      (parse-partial-sexp (point-min) (or pos (point)))))
+
+  (defun ruby-in-ppss-context-p (context &optional ppss)
+    (let ((ppss (or ppss (syntax-ppss (point)))))
+      (if (cond
+           ((eq context 'anything)
+            (or (nth 3 ppss)
+                (nth 4 ppss)))
+           ((eq context 'string)
+            (nth 3 ppss))
+           ((eq context 'heredoc)
+            (and (nth 3 ppss)
+                 ;; If it's generic string, it's a heredoc and we don't care
+                 ;; See `parse-partial-sexp'
+                 (not (numberp (nth 3 ppss)))))
+           ((eq context 'non-heredoc)
+            (and (ruby-in-ppss-context-p 'anything)
+                 (not (ruby-in-ppss-context-p 'heredoc))))
+           ((eq context 'comment)
+            (nth 4 ppss))
+           (t
+            (error (concat
+                    "Internal error on `ruby-in-ppss-context-p': "
+                    "context name `" (symbol-name context) "' is unknown"))))
+          t)))
 
   (defun ruby-in-here-doc-p ()
     (save-excursion
@@ -1153,7 +1224,7 @@ balanced expression is found."
         (beginning-of-line)
         (catch 'found-beg
           (while (re-search-backward ruby-here-doc-beg-re nil t)
-            (if (not (or (syntax-ppss-context (syntax-ppss))
+            (if (not (or (ruby-in-ppss-context-p 'anything)
                          (ruby-here-doc-find-end old-point)))
                 (throw 'found-beg t)))))))
 
@@ -1188,19 +1259,19 @@ buffer position `limit' or the end of the buffer."
   (defun ruby-here-doc-beg-syntax ()
     (save-excursion
       (goto-char (match-beginning 0))
-      (unless (or (ruby-in-non-here-doc-string-p)
+      (unless (or (ruby-in-ppss-context-p 'non-heredoc)
                   (ruby-in-here-doc-p))
         (string-to-syntax "|"))))
 
   (defun ruby-here-doc-end-syntax ()
     (let ((pss (syntax-ppss)) (case-fold-search nil))
-      (when (eq (syntax-ppss-context pss) 'string)
+      (when (ruby-in-ppss-context-p 'heredoc pss)
         (save-excursion
-          (goto-char (nth 8 pss))
+          (goto-char (nth 8 pss))     ; Go to the beginning of heredoc.
           (let ((eol (point)))
             (beginning-of-line)
             (if (and (re-search-forward (ruby-here-doc-beg-match) eol t) ; If there is a heredoc that matches this line...
-                     (null (syntax-ppss-context (syntax-ppss))) ; And that's not inside a heredoc/string/comment...
+                     (not (ruby-in-ppss-context-p 'anything)) ; And that's not inside a heredoc/string/comment...
                      (progn (goto-char (match-end 0)) ; And it's the last heredoc on its line...
                             (not (re-search-forward ruby-here-doc-beg-re eol t))))
                 (string-to-syntax "|")))))))
@@ -1290,7 +1361,8 @@ buffer position `limit' or the end of the buffer."
                "yield"
                )
              t)
-            "\\_>\\)")
+            "\\)"
+            ruby-keyword-end-re)
            2)
      ;; here-doc beginnings
      (list ruby-here-doc-beg-re 0 'font-lock-string-face)
