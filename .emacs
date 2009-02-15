@@ -311,11 +311,11 @@ exec-to-string command, but it works and seems fast"
 (if (equal "autotest" (buffer-name))
 (previous-buffer)
 (switch-to-buffer "autotest")))
-
 ; add to ruby mode hook:
 (define-key ruby-mode-map "\C-c\C-s" 'autotest-switch)
+
+; nofxx
 (global-set-key "\C-x\C-g" 'magit-status)
-; (global-set-key (kbd "C-]") 'comment-or-uncomment-region)
 (global-set-key "\M-/" 'comment-or-uncomment-region)
 (global-set-key "\M-[" 'indent-region)
 (global-set-key "\M-]" 'indent-according-to-mode)
@@ -325,7 +325,6 @@ exec-to-string command, but it works and seems fast"
 (global-set-key "\M-a" 'magit-status)
 (global-set-key "\M-r" 'query-replace)
 (global-set-key "\M-w" 'ido-switch-buffer)
-
 
 
 ;(define-key shell-mode-map "\C-c\C-a" 'autotest-switch)

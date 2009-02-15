@@ -1,8 +1,7 @@
-#
-# Emacs Ruby Dotfiles
-#
+= Emacs Ruby Dotfiles
 
 Lots of modes and shortcuts to make coding ruby/rails more fun.
+
 
 == Install
 
@@ -15,6 +14,29 @@ Lots of modes and shortcuts to make coding ruby/rails more fun.
 Start with the tutorial on Help => Emacs Tutorial
 
 For the lazy, check out /dev/null
+
+
+== Includes
+
+* Ruby / Rails / Haml / Rspec Modes
+* JS2 / CSS Modes
+* Snippets
+* Magit
+* Linum
+* Themes
+
+
+== Shortcuts (Mini linux textmate.el)
+
+* M-/  =>  comment-or-uncomment-region
+* M-[  =>  indent-region
+* M-]  =>  indent-according-to-mode
+* M-s  =>  save-buffer
+* M-t  =>  ido-find-file
+* M-q  =>  kill-this-buffer
+* M-a  =>  magit-status
+* M-r  =>  query-replace
+* M-w  =>  ido-switch-buffer
 
 
 = Portugues
