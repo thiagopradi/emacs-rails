@@ -155,9 +155,9 @@ exec-to-string command, but it works and seems fast"
                                   'flymake-display-err-menu-for-current-line)
                    (flymake-mode t))))))
 
-(eval-after-load 'haml-mode
-  (if (functionp 'whitespace-mode)
-      (add-hook 'haml-mode-hook 'whitespace-mode)))
+;;(eval-after-load 'haml-mode
+  ;;(if (functionp 'whitespace-mode)
+   ;;   (add-hook 'haml-mode-hook 'whitespace-mode)))
 
 ;; TODO: set up ri
 ;; TODO: electric
@@ -257,15 +257,6 @@ exec-to-string command, but it works and seems fast"
  '(twit-user ""))
 
 
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "black" :foreground "#F8F8F8" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 117 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
- '(bm-persistent-face ((((class color) (background light)) (:background "MistyRose" :foreground "Black"))))
- '(font-lock-comment-face ((((class color) (min-colors 88) (background light)) (:foreground "grey64" :slant italic :family "-*-helvetica-medium-*-*-*-12-*-*-*-*-*-*-*")))))
-
 
 ; Configurando o sistema de backup do Emacs
 (setq backup-by-copying t               ; don't clobber symlinks
@@ -326,5 +317,13 @@ exec-to-string command, but it works and seems fast"
 (global-set-key "\M-r" 'query-replace)
 (global-set-key "\M-w" 'ido-switch-buffer)
 
+(autoload 'findr "findr" "Find file name." t)
+(define-key global-map [(meta control S)] 'findr)
+
+(autoload 'findr-search "findr" "Find text in files." t)
+(define-key global-map [(meta control s)] 'findr-search)
+
+(autoload 'findr-query-replace "findr" "Replace text in files." t)
+(define-key global-map [(meta control r)] 'findr-query-replace)
 
 ;(define-key shell-mode-map "\C-c\C-a" 'autotest-switch)
